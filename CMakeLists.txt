@@ -25,3 +25,7 @@ add_executable(voice_im main.cc)
 
 target_link_libraries(voice_im ${EXTRA_LIBS})
 #add_executable(voice_im ${DIR_SRCS})
+
+
+install (TARGETS voice_im DESTINATION bin)
+install (FILES "${PROJECT_BINARY_DIR}/config.h" DESTINATION include)
