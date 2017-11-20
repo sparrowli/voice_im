@@ -4,6 +4,8 @@ cmake_minimum_required (VERSION 2.8)
 #
 project (voice_im)
 
+include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
+check_function_exists(pow HAVE_POW)
 configure_file (
   "${PROJECT_SOURCE_DIR}/config.h.in"
   "${PROJECT_BINARY_DIR}/config.h"

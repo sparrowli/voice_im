@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "config.h"
 
-#ifdef USE_MYMATH
+#ifndef HAVE_POW
 #include "math/MathFunctions.h"
 #else
 #include <math.h>
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     double base = atof(argv[1]);
     int exponent = atoi(argv[2]);
 
-    #ifdef USE_MYMATH
+    #ifndef HAVE_POW
     printf("Now we use our own Math library. \n");
     double result = power(base, exponent);
     #else
