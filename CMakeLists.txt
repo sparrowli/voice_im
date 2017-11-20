@@ -49,3 +49,7 @@ endmacro (do_test)
 do_test(5 2 "is 25")
 do_test(10 5 "is 100000")
 do_test(2 10 "is 1024")
+
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
