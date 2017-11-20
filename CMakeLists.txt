@@ -17,6 +17,7 @@ configure_file (
 option  (USE_MYMATH
         "Use provided math implementation" ON)
 
+include_directories("${PROJECT_SOURCE_DIR}")
 if (USE_MYMATH)
   include_directories ("${PROJECT_SOURCE_DIR}/math")
   add_subdirectory (math)
@@ -55,6 +56,7 @@ do_test(5 2 "is 25")
 do_test(10 5 "is 100000")
 do_test(2 10 "is 1024")
 
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g -ftest-coverage -fprofile-arcs")
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
