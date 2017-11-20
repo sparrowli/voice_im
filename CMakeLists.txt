@@ -29,3 +29,23 @@ target_link_libraries(voice_im ${EXTRA_LIBS})
 
 install (TARGETS voice_im DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/config.h" DESTINATION include)
+
+enable_testing()
+
+add_test (test_run voice_im 2 10)
+
+add_test (test_usage voice_im)
+set_tests_properties(test_usage PROPERTIES PASS_REGULAR_EXPRESSION "Usage: .* base exponent")
+
+add_test (test_2_5 voice_im 2 5)
+set_tests_properties(test_2_5 PROPERTIES PASS_REGULAR_EXPRESSION "is 32")
+
+
+macro (do_test arg1 arg2 result)
+  add_test (test_${arg1}_${arg2} voice_im ${arg1} ${arg2})
+  set_tests_properties(test_${arg1}_${arg2} PROPERTIES PASS_REGULAR_EXPRESSION ${result})
+endmacro (do_test)
+
+do_test(5 2 "is 25")
+do_test(10 5 "is 100000")
+do_test(2 10 "is 1024")
