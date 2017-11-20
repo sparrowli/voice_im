@@ -1,2 +1,5 @@
 #cmakedefine USE_MYMATH
 #cmakedefine HAVE_POW
+
+#define voice_im_VERSION_MAJOR @voice_im_VERSION_MAJOR@
+#define voice_im_VERSION_MINOR @voice_im_VERSION_MINOR@

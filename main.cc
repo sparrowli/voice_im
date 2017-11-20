@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "config.h"
-
-#ifndef HAVE_POW
-#include "math/MathFunctions.h"
-#else
 #include <math.h>
-#endif
+
+#include "config.h"
+#include "math/MathFunctions.h"
 
 int main(int argc, char *argv[])
 {
     if (argc < 3){
+        printf("%s Version %d.%d\n",
+            argv[0],
+            voice_im_VERSION_MAJOR,
+            voice_im_VERSION_MINOR);
+
         printf("Usage: %s base exponent \n", argv[0]);
         return 1;
     }

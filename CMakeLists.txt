@@ -4,6 +4,9 @@ cmake_minimum_required (VERSION 2.8)
 #
 project (voice_im)
 
+set (voice_im_VERSION_MAJOR 1)
+set (voice_im_VERSION_MINOR 0)
+
 include (${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
 check_function_exists(pow HAVE_POW)
 configure_file (
