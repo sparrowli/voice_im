@@ -4,7 +4,6 @@
 
 #include "config.h"
 #include "math/MathFunctions.h"
-#include "api/optional.h"
 
 int main(int argc, char *argv[])
 {
